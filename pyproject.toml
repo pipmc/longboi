@@ -1,0 +1,10 @@
+[project]
+name = "longboi"
+version = "0.1.0"
+description = "A task with really long tool outputs to test Inspect tool output truncation."
+readme = "README.md"
+requires-python = ">=3.13"
+dependencies = []
+
+[tool.poetry.plugins.inspect_ai]
+longboi = "_registry"
