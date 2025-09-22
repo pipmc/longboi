@@ -4,7 +4,17 @@ version = "0.1.0"
 description = "A task with really long tool outputs to test Inspect tool output truncation."
 readme = "README.md"
 requires-python = ">=3.13"
-dependencies = []
+dependencies = ["inspect-ai>=0.3.131"]
 
-[tool.poetry.plugins.inspect_ai]
+[dependency-groups]
+models = ["anthropic", "openai"]
+
+[project.entry-points.inspect_ai]
 longboi = "longboi._registry"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+packages = ["longboi"]
