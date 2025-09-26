@@ -81,7 +81,7 @@ def longboi() -> inspect_ai.Task:
         dataset=[
             inspect_ai.dataset.Sample(input=INSTRUCTIONS),
         ],
-        sandbox=("docker", (pathlib.Path(__file__).parent / "Dockerfile").as_posix()),
+        sandbox=("docker", (pathlib.Path(__file__).parent / "docker-compose.yaml").as_posix()),
         setup=setup_solver(),
         scorer=longboi_scorer(),
     )
