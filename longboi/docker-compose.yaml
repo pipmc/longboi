@@ -4,4 +4,3 @@ services:
     init: true
     stop_grace_period: 1s
     working_dir: /home/agent
-    user: agent
