@@ -9,8 +9,6 @@ from http.server import BaseHTTPRequestHandler, HTTPServer
 from typing import Any, TypedDict, override
 from urllib.parse import urlparse
 
-import daemon
-
 # Fixed list of 12 words for the oracle
 WORDS = (
     "apple",
@@ -223,5 +221,4 @@ def run_server(port: int = 7978):
 
 
 if __name__ == "__main__":
-    with daemon.DaemonContext():
-        run_server(7978)
+    run_server(7978)
