@@ -1,6 +1,7 @@
 import asyncio
 import json
 import pathlib
+import textwrap
 
 import inspect_ai
 import inspect_ai.dataset
@@ -56,7 +57,14 @@ def setup_solver() -> inspect_ai.solver.Solver:
         state: inspect_ai.solver.TaskState, generate: inspect_ai.solver.Generate
     ) -> inspect_ai.solver.TaskState:
         await inspect_ai.util.sandbox().exec(
-            ["python", "/root/server.py"]
+            ["python", "-"],
+            input=textwrap.dedent(
+                 """
+                 import subprocess
+                 import sys
+                 subprocess.Popen([sys.executable, "/root/server.py"])
+                 """
+            ),
         )
         await asyncio.sleep(2)
 
