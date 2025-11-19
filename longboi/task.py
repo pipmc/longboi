@@ -62,7 +62,12 @@ def setup_solver() -> inspect_ai.solver.Solver:
                  """
                  import subprocess
                  import sys
-                 subprocess.Popen([sys.executable, "/root/server.py"])
+                 subprocess.Popen(
+                     [sys.executable, "/root/server.py"],
+                     stdin=subprocess.DEVNULL,
+                     stdout=open("/root/server.out", "w"),
+                     stderr=open("/root/server.err", "w"),
+                 )
                  """
             ),
         )
